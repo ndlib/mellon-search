@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Report version="1.0">
+  <Section name="Header" id="section_00">
+</Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">ABSOLUTION UNDER FIRE</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Paul Wood</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">1891 - 1891</variable>
+    <variable name="[Object]Date Display">1891</variable>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">oil on canvas</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">76 1/2 x 102 x 3 1/4 in. (194.31 x 259.08 x 8.26 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1976.057</variable>
+    <group name="atTemp2" id="object_00003">
+      <variable name="atTemp2" id="object_00003">Bilby, Joseph G., Remember Fontenoy!, Longstreet House, Highstown, NJ, 1995, 86</variable>
+      <variable name="atTemp2" id="object_00003">Burger, John, Columbia, Pelowski, Alton J., Knights of Columbus, New Haven, CT, May 2015, 16-18</variable>
+      <variable name="atTemp2" id="object_00003">Callaghan, James, Civil War, Miller, William J., Christopher M. Curran, Berryville, VA, August 1997, 26-33</variable>
+      <variable name="atTemp2" id="object_00003">Carey, John E., The Civil War, The Washington Times, Saturday, Sept. 14, 1996, B3-not illustrated</variable>
+      <variable name="atTemp2" id="object_00003">Clark, Champ, The Civil War, Time Life Books, 1985, 100-101</variable>
+      <variable name="atTemp2" id="object_00003">Corby, William, Memoirs of Chaplain Life, Kohl, Lawrence Frederick, Fordham University Press, Chicago, 1893, 385-387</variable>
+      <variable name="atTemp2" id="object_00003">Faherty, S. J., William Barnaby, Catholic Chaplains in Blue and Gray, Jesuit Missouri Province Archives, St. Louis, MO, 1995, unknown</variable>
+      <variable name="atTemp2" id="object_00003">Faherty, S. J., William Barnaby, U. S Catholic Historian, Jesuit Missouri Province Archives, St. Louis, MO, Summer 1995, unknown</variable>
+      <variable name="atTemp2" id="object_00003">Mach, Andrew, American Catholic Studies, Van Allen, Rodger, American Catholic Studies</variable>
+      <variable name="atTemp2" id="object_00003">Morris, Claire, 69th New York &amp; It's Place in The Irish Brigade, 2006, 25</variable>
+      <variable name="atTemp2" id="object_00003">O'Beirne, Kevin, Military Heritage, Octtober 1999, 40-41</variable>
+      <variable name="atTemp2" id="object_00003">Rable, George C., Civil War Times, Civil War Times, North Carolina, December 2003, 56-59, 86-88</variable>
+      <variable name="atTemp2" id="object_00003">Shattuck, Gardiner H., The Sword of the Lord: , Bergen, Doris, University of Notre Dame Press, Notre Dame, IN, 2004, 105-123, illustrated on pg. 113</variable>
+      <variable name="atTemp2" id="object_00003">Symonds, Craig L., American Heritage History of the Battle of Gettysburg, HarperCollins , North America, 2001, unknown</variable>
+    </group>
+    <group name="[Exhibitions]Exhibition_Name" id="object_00002">
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">Picturing History</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">09/01/94</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">12/01/94</variable>
+    </group>
+    <group name="KeyWord Path" id="object_00080">
+      <variable name="KeyWord Path" id="object_00080">confederate</variable>
+      <variable name="KeyWord Path" id="object_00080">battle</variable>
+      <variable name="KeyWord Path" id="object_00080">civil war</variable>
+      <variable name="KeyWord Path" id="object_00080">priest</variable>
+      <variable name="KeyWord Path" id="object_00080">battlefield</variable>
+      <variable name="KeyWord Path" id="object_00080">irish</variable>
+      <variable name="KeyWord Path" id="object_00080">soldier</variable>
+      <variable name="KeyWord Path" id="object_00080">conflict</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Associated Concepts Facet&gt;:&lt;Associated Concepts&gt;:&lt;religions and religious concepts&gt;:&lt;religious concepts&gt;:&lt;doctrinal concepts&gt;:absolution</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Physical Attributes Facet&gt;:&lt;Attributes and Properties&gt;:&lt;attributes and properties&gt;:&lt;attributes and properties by specific type&gt;:&lt;positional attributes&gt;:compass points:north</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Styles and Periods Facet&gt;:&lt;Styles and Periods&gt;:&lt;styles and periods by region&gt;:&lt;The Americas&gt;:&lt;American regions&gt;:South American</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Activities Facet&gt;:&lt;Events&gt;:events:armed conflicts</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Activities Facet&gt;:&lt;Events&gt;:events:armed conflicts:wars</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Activities Facet&gt;:&lt;Events&gt;:events:armed conflicts:wars:civil wars</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Objects Facet&gt;:Visual and Verbal Communication:&lt;Visual Works (Hierarchy Name)&gt;:&lt;visual works (Guide Term)&gt;:&lt;visual works by form&gt;:&lt;visual works by form: image form&gt;:depictions</variable>
+      <variable name="KeyWord Path" id="object_00080">AAT:&lt;Objects Facet&gt;:Visual and Verbal Communication:&lt;Information Forms (Hierarchy Name)&gt;:&lt;information forms (Guide Term)&gt;:&lt;document genres&gt;:&lt;document genres by form&gt;:&lt;document genres for literary works&gt;:poems:&lt;poems by function&gt;:epics</variable>
+    </group>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">ANNUNCIATION (A PAIR OF PRELATE'S CUFFS)</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Italian</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">0 - 0</variable>
+    <variable name="[Object]Date Display"/>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">silk, metallic thread, mounted on leather</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">6 1/2 x 11 in. (16.51 x 27.94 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1982.072.001</variable>
+    <group name="atTemp1" id="object_00009">
+      <variable name="atTemp1" id="object_00009">1982.072.001.a -  ANNUNCIATION (A PAIR OF PRELATE'S CUFFS) -  Italian</variable>
+      <variable name="atTemp1" id="object_00009">1982.072.001.b -  ANNUNCIATION (A PAIR OF PRELATE'S CUFFS) -  Italian</variable>
+    </group>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">ANNUNCIATION (A PAIR OF PRELATE'S CUFFS)</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Italian</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">0 - 0</variable>
+    <variable name="[Object]Date Display"/>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">silk, metallic thread, mounted on leather</variable>
+    <variable name="[Object]Display Dimensions" id="object_00063">6 1/2 x 11 in. (16.51 x 27.94 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1982.072.001.a</variable>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">ANNUNCIATION (A PAIR OF PRELATE'S CUFFS)</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Italian</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">0 - 0</variable>
+    <variable name="[Object]Date Display"/>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">silk, metallic thread, mounted on leather</variable>
+    <variable name="[Object]Display Dimensions" id="object_00063">6 1/2 x 11 in. (16.51 x 27.94 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1982.072.001.b</variable>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">CORONATION OF THE VIRGIN</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Anonymous</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">1460 - 1460</variable>
+    <variable name="[Object]Date Display">ca. 1460</variable>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">Wood, GILT POLYCHROME</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">43 in. (109.22 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1934.007.001</variable>
+    <group name="atTemp2" id="object_00003">
+      <variable name="atTemp2" id="object_00003">Porter, Dean A., Selected Works from The Snite Museum of Art University of Notre Dame, Notre Dame University, Snite Museum of Art, the University of Notre Dame, Notre Dame, Ind., 1987, 082</variable>
+      <variable name="atTemp2" id="object_00003">Snite Museum of Art, Selected Works: Snite Museum of Art, 2nd. ed., University of Notre Dame, Notre Dame, IN, 2005, 108-109</variable>
+      <variable name="atTemp2" id="object_00003">University of Notre Dame, Benefactors of the Art Gallery University of Notre Dame, The Notre Dame Art Department, University of Notre Dame Press, 1973</variable>
+      <variable name="atTemp2" id="object_00003">University of Notre Dame, A Guide to The Snite Museum of Art, The University of Notre Dame, University of Notre Dame, Notre Dame, IN, 1981-1982, 39</variable>
+      <variable name="atTemp2" id="object_00003">University of Notre Dame, Students of the Art Department, For Laymen Only: an Examination of Technique Related Images Conservation, The Notre Dame Art Department, University of Notre Dame, Notre Dame, IN, 04/30/1975</variable>
+    </group>
+    <group name="[Exhibitions]Exhibition_Name" id="object_00002">
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">For Laymen Only: An Examination of Technique Related Images Conservation </variable>
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">Benefactors of the Art Gallery University of Notre Dame</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">04/13/75</variable>
+      <variable name="[Exhibitions]Start_Date" id="object_00001">03/17/73</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">07/30/75</variable>
+      <variable name="[Exhibitions]Start_Date" id="object_00001">04/08/73</variable>
+    </group>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">MEMENTO MORI: DEATH COMES TO THE TABLE</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Giovanni Martinelli</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">1620-1659</variable>
+    <variable name="[Object]Date Display">17th century</variable>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">oil on canvas</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">48 x 57 1/4 x 4 3/8 in. (121.92 x 145.42 x 11.11 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1999.024</variable>
+    <group name="atTemp2" id="object_00003">
+      <variable name="atTemp2" id="object_00003">Kelly, III, Raymond, To be or not to be, Flint Institute of Arts, Flint Institute of Arts, 2006, 56-57</variable>
+      <variable name="atTemp2" id="object_00003">Loving, Charles, Face to Face, The University of Notre Dame, University of Notre Dame, Notre Dame, IN, 2003, 16-19</variable>
+      <variable name="atTemp2" id="object_00003">Snite Museum of Art, Selected Works: Snite Museum of Art, 2nd. ed., University of Notre Dame, Notre Dame, IN, 2005, 126</variable>
+    </group>
+    <group name="[Exhibitions]Exhibition_Name" id="object_00002">
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">To Be, or Not To Be: Four Hundred Years of Vanitas Painting</variable>
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">Face to Face: Examining Identity</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">02/04/06</variable>
+      <variable name="[Exhibitions]Start_Date" id="object_00001">09/14/03</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">04/02/06</variable>
+      <variable name="[Exhibitions]Start_Date" id="object_00001">11/16/03</variable>
+    </group>
+    <group name="KeyWord Path" id="object_00080">
+      <variable name="KeyWord Path" id="object_00080">death</variable>
+      <variable name="KeyWord Path" id="object_00080">Allegory</variable>
+      <variable name="KeyWord Path" id="object_00080">food</variable>
+      <variable name="KeyWord Path" id="object_00080">table</variable>
+    </group>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">PLATTER WITH KACHINA FACE</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Maria Martinez, Julian Martinez</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">1925 - 1945</variable>
+    <variable name="[Object]Date Display">c. 1935</variable>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">blackware ceramic</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">14 1/2 in. (36.83 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1986.059.001</variable>
+    <group name="[Exhibitions]Exhibition_Name" id="object_00002">
+      <variable name="[Exhibitions]Exhibition_Name" id="object_00002">Northern Native American Art from the Permanent Collection</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">00/00/00</variable>
+    </group>
+    <group name="[Exhibitions]Start_Date" id="object_00001">
+      <variable name="[Exhibitions]Start_Date" id="object_00001">00/00/00</variable>
+    </group>
+    <group name="KeyWord Path" id="object_00080">
+      <variable name="KeyWord Path" id="object_00080">spirit being</variable>
+    </group>
+  </Section>
+  <Section name="Body" id="section_07">
+    <variable name="[Object]Display Title" id="object_00056">TOAD EFFIGY BALLGAME YOKE</variable>
+    <variable name="[Object]Display Artist" id="object_00060">Early Classic Veracruz culture Veracruz, Mexico</variable>
+    <variable id="Field_36"/>
+    <variable name="[Object]Creation Date" id="object_00062">250 - 400</variable>
+    <variable name="[Object]Date Display"/>
+    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Media and Support" id="object_00061">greenstone with black intrusions</variable>
+    <group name="[Dimensions]Extent" id="object_00013">
+      <variable name="[Dimensions]Extent" id="object_00013"/>
+    </group>
+    <variable name="[Object]Display Dimensions" id="object_00063">17 x 14 1/2 in. (43.18 x 36.83 cm)</variable>
+    <variable name="[Object]Accession Number" id="object_00055">1983.053.002</variable>
+    <group name="atTemp2" id="object_00003">
+      <variable name="atTemp2" id="object_00003">Bradley, Doug, Life, Death &amp; Duality, University of Notre Dame, Notre Dame, IN, 1997, 64</variable>
+      <variable name="atTemp2" id="object_00003">Porter, Dean A., Selected Works from The Snite Museum of Art University of Notre Dame, Notre Dame University, Snite Museum of Art, the University of Notre Dame, Notre Dame, Ind., 1987, 024</variable>
+    </group>
+  </Section>
+  <Section name="Footer" id="section_15">
+</Section>
+</Report>
+
