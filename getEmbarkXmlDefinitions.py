@@ -83,6 +83,13 @@ def getStartsWith(embarkFieldDefinition):
   fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'startsWith', False)
   return(fieldsDefinition)
 
+def getValidation(embarkFieldDefinition):
+  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'validation', False)
+  return(fieldsDefinition)
+
+def getConstant(embarkFieldDefinition):
+  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'constant', False)
+  return(fieldsDefinition)
 
 #tests
 # python3 -c 'from getEmbarkXmlDefinitions import *; test()'
@@ -97,6 +104,8 @@ def test():
     testGetFieldXpath()
     testGetDoesNotStartWith()
     testGetStartsWith()
+    testGetValidation()
+    testGetConstant()
     print ('All tests ran successfully.')
   except:
     print('Houston, we have a problem.')
@@ -146,3 +155,15 @@ def testGetStartsWith():
   StartsWith = getStartsWith(embarkFieldDefinition)
   assert (StartsWith == embarkFieldDefinition['startsWith'])
   assert (StartsWith == "AAT:")
+
+def testGetValidation():
+  embarkFieldDefinition = json.loads('{"name": "recordId", "required": true, "duplicatesAllowed": false, "xpath": "","constant": "Snite","validation":"validateYYYYMMDD" }')
+  validation = getValidation(embarkFieldDefinition)
+  print("validation = ", validation)
+  assert (validation == embarkFieldDefinition['validation'])
+
+def testGetConstant():
+  embarkFieldDefinition = json.loads('{"name": "recordId", "required": true, "duplicatesAllowed": false, "xpath": "","constant": "Snite","validation":"validateYYYYMMDD" }')
+  constant = getConstant(embarkFieldDefinition)
+  print("constant = ", constant)
+  assert (constant == embarkFieldDefinition['constant'])

@@ -30,7 +30,7 @@ def getValidISODate(passedDateString):
     dateString = '{:%Y-%m-%d}'.format(validDate)
   return(dateString)
 
-def getValidYYMMDDDate(passedDateString):
+def getValidYYYYMMDDDate(passedDateString):
   dateString = ""
   try:
     validDate = datetime.datetime.strptime(_get_valid_date(passedDateString), '%Y-%m-%d')
@@ -107,8 +107,8 @@ def test():
     assert(_get_valid_date('201902') == '2019-02-01')
     assert(_get_valid_date('2019 - 2019') == '2019-01-01')
     assert(getValidISODate('2019-02-07') == '2019-02-07')
-    assert(getValidYYMMDDDate('2019-02-07') == '20190207')
-    assert(getValidYYMMDDDate('18910101') == '18910101')
+    assert(getValidYYYYMMDDDate('2019-02-07') == '20190207')
+    assert(getValidYYYYMMDDDate('18910101') == '18910101')
     assert(_get_valid_date('2/7/2019') == '2019-02-07')
     assert(_get_valid_date('0 - 0') == '')
     print('All tests successfully passed.')

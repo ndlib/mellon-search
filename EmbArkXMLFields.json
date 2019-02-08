@@ -8,6 +8,13 @@
 			"xpath": "./variable[@id='object_00055']"
 		},
 		{
+			"name": "repository",
+			"required": false,
+			"duplicatesAllowed": false,
+			"xpath": "required, but not used here.",
+			"constant": "Snite"
+		},
+		{
 			"name": "creator",
 			"required": false,
 			"duplicatesAllowed": false,
@@ -17,7 +24,8 @@
 			"name": "creationDate",
 			"required": false,
 			"duplicatesAllowed": false,
-			"xpath": "./variable[@id='object_00062']"
+			"xpath": "./variable[@id='object_00062']",
+			"validation": "validateYYYYMMDD"
 		},
 		{
 			"name": "displayDate",
@@ -71,15 +79,7 @@
 			"name": "keyword",
 			"required": false,
 			"duplicatesAllowed": true,
-			"xpath": "./group[@id='object_00080']/variable[@id='object_00080']",
-			"doesNotStartWith": "AAT:"
-		},
-		{
-			"name": "facet",
-			"required": false,
-			"duplicatesAllowed": true,
-			"xpath": "./group[@id='object_00080']/variable[@id='object_00080']",
-			"startsWith": "AAT:"
+			"xpath": "./group[@id='object_00080']/variable[@id='object_00080']"
 		}
 	]
 }

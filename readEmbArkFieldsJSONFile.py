@@ -21,9 +21,7 @@ def _read_embark_field_definitions_file (filename):
 
 def _validate_embark_field_definitions_file (embarkFieldDefinitions) :
   itemXPath = getEmbarkXmlDefinitions.getItemXpath(embarkFieldDefinitions)
-  #print (itemXPath)
   fieldsDefinition = getEmbarkXmlDefinitions.getFieldsDefinition(embarkFieldDefinitions)
-  #pprint.pprint(fieldsDefinition)
   for field in fieldsDefinition:
     name = getEmbarkXmlDefinitions.getFieldName(field)
     required = getEmbarkXmlDefinitions.getFieldRequired(field)
@@ -31,7 +29,8 @@ def _validate_embark_field_definitions_file (embarkFieldDefinitions) :
     xpath = getEmbarkXmlDefinitions.getFieldXpath(field)
     doesNotStartWith = getEmbarkXmlDefinitions.getDoesNotStartWith(field)
     startsWith = getEmbarkXmlDefinitions.getStartsWith(field)
-
+    validation = getEmbarkXmlDefinitions.getValidation(field)
+    constant = getEmbarkXmlDefinitions.getConstant(field)
     return
 
 
@@ -39,18 +38,24 @@ def readAndValidateEmbArkFieldDefinitionsFile (filename = "./EmbArkXMLFields.jso
   embarkFieldDefinitions=""
   try:
     embarkFieldDefinitions = _read_embark_field_definitions_file (filename)
-    #print (embarkFieldDefinitions)
     _validate_embark_field_definitions_file (embarkFieldDefinitions)
   except:
-    print ('Error occurred during Read but before validate. ')
     raise
   return(embarkFieldDefinitions)
 
 #tests
 # python3 -c 'from readEmbArkFieldsJSONFile import *; test()'
 def test():
-  testreadAndValidateembarkFieldDefinitionsFile("./EmbArkXMLFields.json")
-  testMissingEmbArkFielDefinitionsFile("./EmbArkXMLFields.jsonx")
+  try:
+    testreadAndValidateEmbArkFieldDefinitionsFile("./EmbArkXMLFields.json")
+    try:
+      testMissingEmbArkFielDefinitionsFile("./EmbArkXMLFields.jsonx")
+    except FileNotFoundError:
+      pass
+    print("All tests ran successfully")
+  except:
+    Print("Tests failed.")
+    raise
 
 # python3 -c 'from readEmbArkFieldsJSONFile import *; testReadembarkFieldDefinitionsFile("./EmbArkXMLFields.json")'
 def testreadAndValidateEmbArkFieldDefinitionsFile(filename):
@@ -61,6 +66,6 @@ def testreadAndValidateEmbArkFieldDefinitionsFile(filename):
 
 def testMissingEmbArkFielDefinitionsFile(filename):
   try:
-    embarkFieldDefinitions = readAndValidateembarkFieldDefinitionsFile (filename)
+    embarkFieldDefinitions = readAndValidateEmbArkFieldDefinitionsFile (filename)
   except FileNotFoundError:
     print ('File Not Found')

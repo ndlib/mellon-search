@@ -33,7 +33,7 @@ class parseEmbArkXml():
     fieldsDefinition = self.fieldsDefinition
     # Initialize output record at beginning of each EmbArk Item
     self.output={}
-    self.output['repository']="Snite" #Save the fact this record represents an item in the Snite Museum
+    #self.output['repository']="Snite" #Save the fact this record represents an item in the Snite Museum
     node={}
     for field in fieldsDefinition:
       node = self._get_individual_field (field, embarkItemXML)
@@ -52,25 +52,30 @@ class parseEmbArkXml():
     xpath = getEmbarkXmlDefinitions.getFieldXpath(field)
     doesNotStartWith = getEmbarkXmlDefinitions.getDoesNotStartWith(field)
     startsWith = getEmbarkXmlDefinitions.getStartsWith(field)
-    if name == 'exhibition': #stupid special case for exhibitions
-      jsonForThisField = self._get_exhibition_information(embarkItemXML, name, required, xpath, startsWith, doesNotStartWith)
+    validation = getEmbarkXmlDefinitions.getValidation(field)
+    constant = getEmbarkXmlDefinitions.getConstant(field)
+    if constant > "":
+      jsonForThisField[name]= constant
+      #print (jsonForThisField)
+    elif name == 'exhibition': #stupid special case for exhibitions
+      jsonForThisField = self._get_exhibition_information(embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
     elif duplicatesAllowed :
-      jsonForThisField = self._get_multiple (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith)
+      jsonForThisField = self._get_multiple (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
     else :
-      jsonForThisField = self._get_singlton (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith)
+      jsonForThisField = self._get_singlton (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
 
     return (jsonForThisField)
 
 
-  def _get_singlton (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith):
+  def _get_singlton (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
     singleNode = {}
     valueFound=""
     try:
       valueFound = embarkItemXML.find(xpath).text
       if not required and valueFound is None:
         valueFound = ''
-      if name == 'creationDate' and valueFound > '':
-        valueFound = getValidDate.getValidYYMMDDDate(valueFound)
+      if validation == 'validateYYYYMMDD' and valueFound > '':
+        valueFound = getValidDate.getValidYYYYMMDDDate(valueFound)
       singleNode[name] = valueFound
       if name == 'recordId':
         self.id = valueFound
@@ -82,7 +87,7 @@ class parseEmbArkXml():
     return (singleNode)
 
 
-  def _get_multiple (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith):
+  def _get_multiple (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
     multipleNode = {}
     multipleNode[name] = []
     for item in embarkItemXML.findall(xpath):
@@ -93,7 +98,7 @@ class parseEmbArkXml():
     return (multipleNode)
 
 
-  def _get_exhibition_information(self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith):
+  def _get_exhibition_information(self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
     #This is to accommodate the special (crazy) data format which represents exhibitions
     exhibitionNode = {}
     exhibitionNode[name] = []
@@ -141,9 +146,9 @@ def test():
   testReadAndParse()
 
 def testReadAndParse():
-  xmldoc = ElementTree(file='objects 01_18_19.xml')
+  xmldoc = ElementTree(file='example/objects 01_18_19.xml')
   filename = "./EmbArkXMLFields.json"
-  embArkFieldDefinitions = readEmbArkFieldsJSONFile.readAndValidateembArkFieldDefinitionsFile (filename)
+  embArkFieldDefinitions = readEmbArkFieldsJSONFile.readAndValidateEmbArkFieldDefinitionsFile (filename)
   itemXPath = getEmbarkXmlDefinitions.getItemXpath(embArkFieldDefinitions)
   fieldsDefinition = getEmbarkXmlDefinitions.getFieldsDefinition(embArkFieldDefinitions)
   for xmlOfEmbArkItem in xmldoc.findall(itemXPath):

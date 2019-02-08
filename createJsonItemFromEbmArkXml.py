@@ -1,4 +1,6 @@
 # createJsonItemFromEbmArkXml.py 2/5/19 sm
+""" This is the first module in a series of modules to create JSON (and PNX) given EmbArk input. """
+
 import os, json
 import parseEmbArkXml
 import readEmbArkFieldsJSONFile

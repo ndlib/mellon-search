@@ -51,7 +51,7 @@ def _create_facet_section (jsonInput):
   ET.SubElement(facet, 'lfc09').text = jsonInput['classification']
   ET.SubElement(facet, 'rsrctype').text = jsonInput['classification']
   ET.SubElement(facet, 'library').text = jsonInput['repository'].upper()
-  ET.SubElement(facet, 'creationdate').text = jsonInput['creationDate'] 
+  ET.SubElement(facet, 'creationdate').text = jsonInput['creationDate']
   return (facet)
 
 def createPNXfromJSON (jsonInput):
