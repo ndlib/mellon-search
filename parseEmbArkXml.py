@@ -59,17 +59,41 @@ class parseEmbArkXml():
       #print (jsonForThisField)
     elif name == 'exhibition': #stupid special case for exhibitions
       jsonForThisField = self._get_exhibition_information(embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
-    elif duplicatesAllowed :
-      jsonForThisField = self._get_multiple (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
-    else :
-      jsonForThisField = self._get_singlton (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
+    else:
+      jsonForThisField = self._get_node (embarkItemXML, name, required, duplicatesAllowed, xpath, startsWith, doesNotStartWith, validation)
+    #elif duplicatesAllowed :
+    #  jsonForThisField = self._get_multiple (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
+    #else :
+    #  jsonForThisField = self._get_singlton (embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation)
 
     return (jsonForThisField)
 
+  def _get_node (self, embarkItemXML, name, required, duplicatesAllowed, xpath, startsWith, doesNotStartWith, validation):
+    node = {}
+    self._validate_record_count(embarkItemXML, name, required, duplicatesAllowed, xpath)
+    for item in embarkItemXML.findall(xpath):
+      this_item = {}
+      valueFound = item.text
+      if validation == 'validateYYYYMMDD' and valueFound > '':
+        valueFound = getValidDate.getValidYYYYMMDDDate(valueFound)
+      if name == 'recordId':
+        self.id = valueFound
+      if duplicatesAllowed:
+        this_item["value"] = valueFound
+        if name not in node:
+          node[name] = []
+        node[name].append(this_item)
+      else:
+        this_item[name] = valueFound
+        node = this_item
+        break #if duplicates are not allowed, only accept first occurance
+    return(node)
 
-  def _get_singlton (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
+  def xxx_get_singlton (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
     singleNode = {}
     valueFound=""
+    #self._validate_record_count(embarkItemXML, name, required, False, xpath)
+
     try:
       valueFound = embarkItemXML.find(xpath).text
       if not required and valueFound is None:
@@ -87,9 +111,11 @@ class parseEmbArkXml():
     return (singleNode)
 
 
-  def _get_multiple (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
+  def xxx_get_multiple (self, embarkItemXML, name, required, xpath, startsWith, doesNotStartWith, validation):
     multipleNode = {}
     multipleNode[name] = []
+    #self._validate_record_count(embarkItemXML, name, required, True, xpath)
+
     for item in embarkItemXML.findall(xpath):
       this_item = {}
       if _starts_with_ok(item.text, startsWith) and _does_not_start_with_ok (item.text, doesNotStartWith):
@@ -137,6 +163,7 @@ class parseEmbArkXml():
       errorText = 'By definition, ' + name + ' may only occur once in a record, but we found it ' + elementCount + ' times.  Unable to process record.'
       raise ValueError(errorText)
     assert ((elementCount == 1 and not duplicatesAllowed) or (duplicatesAllowed))
+    #print(name, duplicatesAllowed, elementCount)
     return(errorText)
 
 #Add tests
