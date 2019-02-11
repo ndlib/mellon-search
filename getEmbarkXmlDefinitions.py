@@ -48,47 +48,47 @@
   """
 
 import json
-import getJsonValues
+import get_json_values
 
 
 def getItemXpath(embarkFieldDefinitions):
-  itemXPath = getJsonValues.getJsonValue(embarkFieldDefinitions, 'itemPath')
+  itemXPath = get_json_values.get_json_value(embarkFieldDefinitions, 'itemPath')
   return(itemXPath)
 
 def getFieldsDefinition(embarkFieldDefinitions):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinitions, 'FieldsToExtract')
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinitions, 'FieldsToExtract')
   return(fieldsDefinition)
 
 def getFieldName(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'name')
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'name')
   return(fieldsDefinition)
 
 def getFieldRequired(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'required')
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'required')
   return(fieldsDefinition)
 
 def getFieldDuplicatesAllowed(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'duplicatesAllowed')
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'duplicatesAllowed')
   return(fieldsDefinition)
 
 def getFieldXpath(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'xpath')
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'xpath')
   return(fieldsDefinition)
 
 def getDoesNotStartWith(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'doesNotStartWith', False)
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'doesNotStartWith', False)
   return(fieldsDefinition)
 
 def getStartsWith(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'startsWith', False)
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'startsWith', False)
   return(fieldsDefinition)
 
 def getValidation(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'validation', False)
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'validation', False)
   return(fieldsDefinition)
 
 def getConstant(embarkFieldDefinition):
-  fieldsDefinition = getJsonValues.getJsonValue(embarkFieldDefinition, 'constant', False)
+  fieldsDefinition = get_json_values.get_json_value(embarkFieldDefinition, 'constant', False)
   return(fieldsDefinition)
 
 #tests

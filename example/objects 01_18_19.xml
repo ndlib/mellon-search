@@ -8,7 +8,7 @@
     <variable id="Field_36"/>
     <variable name="[Object]Creation Date" id="object_00062">1891 - 1891</variable>
     <variable name="[Object]Date Display">1891</variable>
-    <variable name="[Object]Class 2"/>
+    <variable name="[Object]Class 2">Painting</variable>
     <variable name="[Object]Media and Support" id="object_00061">oil on canvas</variable>
     <group name="[Dimensions]Extent" id="object_00013">
       <variable name="[Dimensions]Extent" id="object_00013"/>
@@ -218,4 +218,3 @@
   <Section name="Footer" id="section_15">
 </Section>
 </Report>
-
