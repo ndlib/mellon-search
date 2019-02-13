@@ -1,6 +1,7 @@
 #create_pnx_from_json.py 2/6/19 sm
 """ This module will transform JSON input into PNX XML output for loading into Primo. """
 
+import os
 import json
 import xml.etree.ElementTree as ET
 #import pprint
@@ -14,6 +15,8 @@ def _create_display_section(json_input):
     ET.SubElement(display, 'creator').text = json_input['creator']
     ET.SubElement(display, 'creationdate').text = json_input['displayDate']
     ET.SubElement(display, 'format').text = json_input['media'] + ', ' + json_input['displayDimensions']
+    if json_input['classification'] is None:
+        json_input['classification'] = 'painting'
     ET.SubElement(display, 'lds09').text = json_input['classification']
     ET.SubElement(display, 'type').text = json_input['classification']
     ET.SubElement(display, 'lsd10').text = json_input['repository'].title() # Make sure this is mixed case
@@ -59,18 +62,44 @@ def _create_facet_section(json_input):
     ET.SubElement(facet, 'creationdate').text = json_input['creationDate']
     return facet
 
+def _create_delivery_section(json_input):
+    ''' Create Delivery Section of Primo Record '''
+    delivery = ET.Element("delivery")
+    ET.SubElement(delivery, 'delcategory').text = "Physical Item"
+    ET.SubElement(delivery, 'institution').text = json_input['repository'].upper()
+    return delivery
+
 def create_pnx_from_json(json_input):
     ''' Create PNX Record for Primo '''
-    root = ET.Element("record")
-    ET.SubElement(root, 'id').text = json_input['recordId']
-    root.append(_create_display_section(json_input))
-    root.append(_create_search_section(json_input))
-    root.append(_create_browse_section(json_input))
-    root.append(_create_sort_section(json_input))
-    root.append(_create_facet_section(json_input))
+    root = ET.Element("records")
+    record = ET.Element("record")
+    record.attrib["xmlns"] = "http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib"
+    record.attrib["xmlns:sear"] = "http://www.exlibrisgroup.com/xsd/jaguar/search"
+    ET.SubElement(record, 'id').text = json_input['recordId']
+    record.append(_create_display_section(json_input))
+    record.append(_create_search_section(json_input))
+    record.append(_create_browse_section(json_input))
+    record.append(_create_sort_section(json_input))
+    record.append(_create_facet_section(json_input))
+    record.append(_create_delivery_section(json_input))
+    root.append(record)
+    root.tail = '\n' #make sure there is a new line character after the last node
     tree = ET.ElementTree(root)
-    tree.write('example/' + json_input['recordId'] + '.xml')
+    pnx_directory = 'pnx'
+    create_directory(pnx_directory)
+    #note:  xml_delcaration and encoding is required to add the required declaration to the top of the XML file
+    tree.write(pnx_directory + '/' + json_input['recordId'] + '.xml',
+               xml_declaration=True,
+               encoding='utf-8',
+               method="xml"
+               )
 
+def create_directory(directory):
+    try:
+        os.makedirs(directory)
+    except FileExistsError:
+        # directory already exists
+        pass
 
 # python3 -c 'from create_pnx_from_json import *; test("example/1976.057.json")'
 def test(filename):

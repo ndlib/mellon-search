@@ -73,9 +73,6 @@ class GetEmbarkField():
                 value_found = item.text
             if self.field['validation'] == 'validateYYYYMMDD' and value_found > '':
                 value_found = get_valid_date.get_valid_yyyymmdd_date(value_found)
-# bump this up a level
-#            if self.field['name'] == 'recordId':
-#                self.id = value_found
             if self.field['duplicates_allowed']:
                 this_item["value"] = value_found
                 if self.field['name'] not in node:

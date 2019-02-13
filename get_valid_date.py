@@ -26,9 +26,13 @@ def _get_valid_date(original_date):
 def get_valid_iso_date(passed_date_string):
     ''' Public method to return ISO date string '''
     date_string = ""
-    valid_date = datetime.datetime.strptime(_get_valid_date(passed_date_string), '%Y-%m-%d')
-    if isinstance(valid_date, datetime.datetime):
-        date_string = '{:%Y-%m-%d}'.format(valid_date)
+    try:
+        valid_date = datetime.datetime.strptime(_get_valid_date(passed_date_string), '%Y-%m-%d')
+    except ValueError:
+        pass #return no string if not valid date
+    else:
+        if isinstance(valid_date, datetime.datetime):
+            date_string = '{:%Y-%m-%d}'.format(valid_date)
     return date_string
 
 def get_valid_yyyymmdd_date(passed_date_string):
@@ -105,23 +109,3 @@ def _get_date_from_mm_s_dd_s_yyyy(original_date): #Trying to capture year from "
     except ValueError:
         pass
     return valid_date
-
-# python3 -c 'from get_valid_date import *; test()'
-def test():
-    ''' run all tests for this module '''
-    try:
-        assert _get_valid_date('2019-02-07') == '2019-02-07'
-        assert _get_valid_date('2019-02') == '2019-02-01'
-        assert _get_valid_date('2019') == '2019-01-01'
-        assert _get_valid_date('20190207') == '2019-02-07'
-        assert _get_valid_date('201902') == '2019-02-01'
-        assert _get_valid_date('2019 - 2019') == '2019-01-01'
-        assert get_valid_iso_date('2019-02-07') == '2019-02-07'
-        assert get_valid_yyyymmdd_date('2019-02-07') == '20190207'
-        assert get_valid_yyyymmdd_date('18910101') == '18910101'
-        assert _get_valid_date('2/7/2019') == '2019-02-07'
-        assert _get_valid_date('0 - 0') == ''
-        print('All tests successfully passed.')
-    except:
-        print('Errors were encountered.')
-        raise

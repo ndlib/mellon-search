@@ -1,6 +1,7 @@
 # create_json_items_from_embark_xml.py 2/5/19 sm
 """ This is the first module in a series of modules to create JSON (and PNX) given EmbArk input. """
 
+import os
 import json
 from xml.etree.ElementTree import ElementTree
 import parse_embark_xml
@@ -16,9 +17,18 @@ import create_pnx_from_json
 #fields_definition = get_embark_xml_definitions.get_fields_definition(emb_ark_field_definitions)
 
 
-def write_json_output(filename, json_data):
+def create_directory(directory):
+    try:
+        os.makedirs(directory)
+    except FileExistsError:
+        # directory already exists
+        pass
+
+def write_json_output(directory, filename, json_data):
     ''' Write JSON to file whose name is passed '''
     try:
+        create_directory(directory)
+        filename = directory + '/' + filename
         with open(filename, 'w') as outfile:
             json.dump(json_data, outfile)
     except:
@@ -48,9 +58,9 @@ def create_json_items_from_embark_xml(embark_xml_filename):
                 #We will need to add some logging here
                 raise
             else:
-                write_json_output('example/' + parse_embark_xml_instance.id + '.json', json_of_embark_item)
+                mellon_input_directory = 'mellon_input_directory/' + parse_embark_xml_instance.id
+                write_json_output(mellon_input_directory, parse_embark_xml_instance.id + '.json', json_of_embark_item)
                 create_pnx_from_json.create_pnx_from_json(json_of_embark_item)
-
 
 #tests
 # python3 -c 'from create_json_items_from_embark_xml import *; test()'
@@ -61,13 +71,3 @@ def test():
 def _test_create_json_items_from_embark_xml():
     ''' test creating json item from embark xml '''
     create_json_items_from_embark_xml(embark_xml_filename='example/objects 01_18_19.xml')
-
-#def testReadingJsonFile():
-#    xpath_of_embark_item = ""
-#    fields_definition = {}
-#    filename = "./EmbArkXMLFields.json"
-#    #getemb_ark_field_definitionsFromFile(filename, xpath_of_embark_item, fields_definition)
-#    print('here')
-#    #print(filename)
-#    print(xpath_of_embark_item)
-#    print(fields_definition)
