@@ -2,12 +2,14 @@
 """ This is the first module in a series of modules to create JSON (and PNX) given EmbArk input. """
 
 import os
+import sys
 import json
 from xml.etree.ElementTree import ElementTree
 import parse_embark_xml
 import read_embark_fields_json_file
 import get_embark_xml_definitions
 import create_pnx_from_json
+import write_main_csv
 
 # Get necessary information from JSON control file
 # I had problems here trying to pass by reference, with values not being returned as expected
@@ -61,6 +63,13 @@ def create_json_items_from_embark_xml(embark_xml_filename):
                 mellon_input_directory = 'mellon_input_directory/' + parse_embark_xml_instance.id
                 write_json_output(mellon_input_directory, parse_embark_xml_instance.id + '.json', json_of_embark_item)
                 create_pnx_from_json.create_pnx_from_json(json_of_embark_item)
+                write_main_csv.write_main_csv(mellon_input_directory, json_of_embark_item)
+
+if __name__ == "__main__":
+    filename = ''.join(sys.argv[1])
+    if filename > '':
+        create_json_items_from_embark_xml(filename)
+
 
 #tests
 # python3 -c 'from create_json_items_from_embark_xml import *; test()'

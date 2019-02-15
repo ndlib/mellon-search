@@ -17,8 +17,8 @@ def _create_display_section(json_input):
     ET.SubElement(display, 'format').text = json_input['media'] + ', ' + json_input['displayDimensions']
     if json_input['classification'] is None:
         json_input['classification'] = 'painting'
-    ET.SubElement(display, 'lds09').text = json_input['classification']
-    ET.SubElement(display, 'type').text = json_input['classification']
+    ET.SubElement(display, 'lds09').text = json_input['classification'].lower()
+    ET.SubElement(display, 'type').text = json_input['classification'].lower()
     ET.SubElement(display, 'lsd10').text = json_input['repository'].title() # Make sure this is mixed case
     return display
 
@@ -30,8 +30,8 @@ def _create_search_section(json_input):
     ET.SubElement(search, 'creator').text = json_input['creator']
     ET.SubElement(search, 'creationdate').text = json_input['creationDate']
     ET.SubElement(search, 'general').text = json_input['media'] + ', ' + json_input['displayDimensions']
-    ET.SubElement(search, 'lsr09').text = json_input['classification']
-    ET.SubElement(search, 'rsrctype').text = json_input['classification']
+    ET.SubElement(search, 'lsr09').text = json_input['classification'].lower()
+    ET.SubElement(search, 'rsrctype').text = json_input['classification'].lower()
     ET.SubElement(search, 'scope').text = json_input['repository'].upper() # Make sure this is upper case
     return search
 
@@ -56,8 +56,8 @@ def _create_facet_section(json_input):
     ''' Create Facet Section of Primo Record '''
     facet = ET.Element("facet")
     ET.SubElement(facet, 'creatorcontrib').text = json_input['creator']
-    ET.SubElement(facet, 'lfc09').text = json_input['classification']
-    ET.SubElement(facet, 'rsrctype').text = json_input['classification']
+    ET.SubElement(facet, 'lfc09').text = json_input['classification'].lower()
+    ET.SubElement(facet, 'rsrctype').text = json_input['classification'].lower()
     ET.SubElement(facet, 'library').text = json_input['repository'].upper()
     ET.SubElement(facet, 'creationdate').text = json_input['creationDate']
     return facet
@@ -90,7 +90,7 @@ def create_pnx_from_json(json_input):
     #note:  xml_delcaration and encoding is required to add the required declaration to the top of the XML file
     tree.write(pnx_directory + '/' + json_input['recordId'] + '.xml',
                xml_declaration=True,
-               encoding='utf-8',
+               encoding="utf-8",
                method="xml"
                )
 

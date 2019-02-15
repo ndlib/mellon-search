@@ -3,12 +3,13 @@ This project translates a referenced EmbArk XML file, possibly containing many E
     into a separate JSON file for each item.
 
     Each JSON file is then used to create a PNX record to be imported into Primo.
+    Each JSON file is also used to create a main.csv file for ingestion into the Mellon Manifest Pipeline
 
 
 To run, pass in the filename to be processed.  For example:
 python3 -c 'from create_json_items_from_embark_xml import *; create_json_items_from_embark_xml("example/objects 01_18_19.xml")'
 
-
+Then run: ./copy_pnx_to_Primo.sh to copy PNX records into Primo
 
 Modules:
 createJsonItemFromEmbArkXml
