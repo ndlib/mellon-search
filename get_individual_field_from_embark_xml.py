@@ -2,10 +2,7 @@
 """ This module will accept an individual JSON field definition and will use that definition to retrieve
     data from EmbArk XML (also passed). """
 
-from xml.etree.ElementTree import ElementTree
-import json
 import get_embark_xml_definitions
-import read_embark_fields_json_file
 import get_valid_date
 
 def _starts_with_ok(text, starts_with):
@@ -35,6 +32,7 @@ class GetEmbarkField():
         self.field['required'] = get_embark_xml_definitions.get_field_required(field_definition)
         self.field['duplicates_allowed'] = get_embark_xml_definitions.get_field_duplicates_allowed(field_definition)
         self.field['xpath'] = get_embark_xml_definitions.get_field_xpath(field_definition)
+        self.field['default'] = get_embark_xml_definitions.get_field_default(field_definition)
         self.field['does_not_start_with'] = get_embark_xml_definitions.get_does_not_start_with(field_definition)
         self.field['starts_with'] = get_embark_xml_definitions.get_starts_with(field_definition)
         self.field['validation'] = get_embark_xml_definitions.get_validation_rule(field_definition)
@@ -55,6 +53,11 @@ class GetEmbarkField():
                 json_for_this_field = self._get_exhibition_information(embark_item_xml)
             else:
                 json_for_this_field = self._get_node(embark_item_xml)
+            if json_for_this_field == {} and self.field['default'] > "":
+                json_for_this_field[self.field['name']] = self.field['default']
+            if json_for_this_field == {} and self.field['required']:
+                error_text = 'Required field ' + self.field['name'] + ' is missing.    Unable to process record '
+                raise ValueError(error_text)
         except ValueError:
             print('get_individual_field_from_embark_xml.get_json_represetation_of_field encountered an error.')
             json_for_this_field = {}
@@ -65,7 +68,6 @@ class GetEmbarkField():
         ''' This retrieves an individual value (or array) from XML
             , optionally validates it, and saves to JSON '''
         node = {}
-        self._validate_record_count(embark_item_xml)
         for item in embark_item_xml.findall(self.field['xpath']):
             this_item = {}
             value_found = ""
@@ -79,12 +81,13 @@ class GetEmbarkField():
                     node[self.field['name']] = []
                 node[self.field['name']].append(this_item)
             else:
-                this_item[self.field['name']] = value_found
-                node = this_item
+                if not(value_found is None):
+                    this_item[self.field['name']] = value_found
+                    node = this_item
                 break #if duplicates are not allowed, only accept first occurrence
         return node
 
-
+    #Note:  Once we get exhibition information concatenated from Snite, this will be obsolete
     def _get_exhibition_information(self, embark_item_xml):
         ''' This is to accommodate the special (crazy) data format which represents exhibitions '''
         exhibition_node = {}
@@ -113,49 +116,3 @@ class GetEmbarkField():
                             this_item["endDate"] = end_date.text
             exhibition_node[self.field['name']].append(this_item)
         return exhibition_node
-
-
-    def _validate_record_count(self, embark_item_xml):
-        ''' This ensures required fields exist '''
-        error_text = ""
-        error = {}
-        element_count = len(embark_item_xml.findall(self.field['xpath']))
-        if element_count == 0 and self.field['required']:
-            error_text = 'Required field ' + self.field['name'] + ' is missing.    Unable to process record '
-            error["ValueError"] = error_text
-            raise ValueError(error_text)
-        return error
-
-
-# Tests
-# python3 -c 'from get_individual_field_from_embark_xml import *; test("example/objects 01_18_19.xml")'
-def test(filename='example/objects 01_18_19.xml'):
-    ''' Run all tests for this module '''
-    _test_starts_with()
-    _test_read_and_parse(filename)
-
-def _test_read_and_parse(filename):
-    ''' test Read and Parse '''
-    xmldoc = ElementTree(file=filename)
-    filename = "./EmbArkXMLFields.json"
-    embark_field_definitions = read_embark_fields_json_file.read_and_validate_embark_field_definitions_file(filename)
-    item_xpath = get_embark_xml_definitions.get_item_xpath(embark_field_definitions)
-    #fields_definition = get_embark_xml_definitions.get_fields_definition(embark_field_definitions)
-    for xml_of_embark_item in xmldoc.findall(item_xpath):
-        # xml_of_embark_item contains EmbArk xml for one item.
-        json_of_embark_field = {}
-        field_definition = json.loads('{"name": "recordId","required": true,"duplicatesAllowed": false,"xpath": "./variable[@id=\'object_00055\']"}')
-        #field_definition = json.loads('{"name": "creator","required": false,"duplicatesAllowed": false,"xpath": "./variable[@id=\'object_00060\']"}')
-        field = GetEmbarkField(field_definition)
-        json_of_embark_field = field.get_json_representation_of_field(xml_of_embark_item)
-        #print(json_of_embark_field)
-
-
-def _test_starts_with():
-    ''' Test Starts With and Does Not Start With routines '''
-    assert _starts_with_ok('abc123', 'abc')
-    assert not _starts_with_ok('abc123', '123')
-    assert _starts_with_ok('abc123', '')
-    assert _does_not_start_with_ok('abc123', '')
-    assert _does_not_start_with_ok('abc123', '123')
-    assert not _does_not_start_with_ok('abc123', 'abc')

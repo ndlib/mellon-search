@@ -11,20 +11,14 @@ import get_embark_xml_definitions
 import create_pnx_from_json
 import write_main_csv
 
-# Get necessary information from JSON control file
-# I had problems here trying to pass by reference, with values not being returned as expected
-#def getemb_ark_field_definitionsFromFile(xpath_of_embark_item, fields_definition):
-#emb_ark_field_definitions = read_embark_fields_json_file.read_and_validate_embark_field_definitions_file ()
-#xpath_of_embark_item = get_embark_xml_definitions.get_item_xpath(emb_ark_field_definitions)
-#fields_definition = get_embark_xml_definitions.get_fields_definition(emb_ark_field_definitions)
-
 
 def create_directory(directory):
+    ''' Create a directory if it doesn't exist '''
     try:
         os.makedirs(directory)
     except FileExistsError:
-        # directory already exists
-        pass
+        pass # directory already exists
+
 
 def write_json_output(directory, filename, json_data):
     ''' Write JSON to file whose name is passed '''
@@ -38,7 +32,7 @@ def write_json_output(directory, filename, json_data):
         raise
 
 
-def create_json_items_from_embark_xml(embark_xml_filename):
+def create_json_items_from_embark_xml(embark_xml_filename, pnx_output_directory='pnx', csv_output_root_directory='mellon_input_directory'):
     ''' Create JSON representation of each item from embark xml file '''
     try:
         embark_xml_doc = ElementTree(file=embark_xml_filename)
@@ -60,23 +54,16 @@ def create_json_items_from_embark_xml(embark_xml_filename):
                 #We will need to add some logging here
                 raise
             else:
-                mellon_input_directory = 'mellon_input_directory/' + parse_embark_xml_instance.id
+                mellon_input_directory = csv_output_root_directory + '/' + parse_embark_xml_instance.id
                 write_json_output(mellon_input_directory, parse_embark_xml_instance.id + '.json', json_of_embark_item)
-                create_pnx_from_json.create_pnx_from_json(json_of_embark_item)
+                create_pnx_from_json.create_pnx_from_json_and_write_file(pnx_output_directory, json_of_embark_item)
                 write_main_csv.write_main_csv(mellon_input_directory, json_of_embark_item)
 
+
 if __name__ == "__main__":
-    filename = ''.join(sys.argv[1])
-    if filename > '':
-        create_json_items_from_embark_xml(filename)
-
-
-#tests
-# python3 -c 'from create_json_items_from_embark_xml import *; test()'
-def test():
-    ''' run all tests for this module '''
-    _test_create_json_items_from_embark_xml()
-
-def _test_create_json_items_from_embark_xml():
-    ''' test creating json item from embark xml '''
-    create_json_items_from_embark_xml(embark_xml_filename='example/objects 01_18_19.xml')
+    XML_FILENAME = ''
+    PNX_OUTPUT_DIRECTORY= ''
+    if len(sys.argv) >= 1:
+        XML_FILENAME = ''.join(sys.argv[1])
+    if XML_FILENAME > '':
+        create_json_items_from_embark_xml(XML_FILENAME)

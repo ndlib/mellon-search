@@ -30,12 +30,14 @@ def _validate_embark_field_definitions_file(embark_field_definitions):
             get_embark_xml_definitions.get_field_required(field)
             get_embark_xml_definitions.get_field_duplicates_allowed(field)
             get_embark_xml_definitions.get_field_xpath(field)
+            get_embark_xml_definitions.get_field_default(field)
             get_embark_xml_definitions.get_does_not_start_with(field)
             get_embark_xml_definitions.get_starts_with(field)
             get_embark_xml_definitions.get_validation_rule(field)
             get_embark_xml_definitions.get_constant(field)
         except ValueError:
             print('Error attempting to validate JSON file.')
+            raise
 
 def read_and_validate_embark_field_definitions_file(filename="./EmbArkXMLFields.json"):
     ''' calls routines to read and validate json file '''
@@ -47,33 +49,3 @@ def read_and_validate_embark_field_definitions_file(filename="./EmbArkXMLFields.
         print('Read_embark_fields_json_file.read_and_validate_embark_field_definitions_file encountered an error.')
         raise
     return embark_field_definitions
-
-#tests
-# python3 -c 'from read_embark_fields_json_file import *; test()'
-def test():
-    ''' run all tests in this module '''
-    try:
-        _test_read_and_validate_embark_field_definitions_file("./EmbArkXMLFields.json")
-        try:
-            _test_missing_embark_field_definitions_file("./EmbArkXMLFields.jsonx")
-        except FileNotFoundError:
-            pass
-        print("All tests ran successfully")
-    except:
-        print("Tests failed.")
-        raise
-
-# python3 -c 'from read_embark_fields_json_file import *; testReadembark_field_definitionsFile("./EmbArkXMLFields.json")'
-def _test_read_and_validate_embark_field_definitions_file(filename):
-    ''' test read and validate '''
-    try:
-        read_and_validate_embark_field_definitions_file(filename)
-    except FileNotFoundError:
-        print('File Not Found')
-
-def _test_missing_embark_field_definitions_file(filename):
-    ''' test for missing field definitions file '''
-    try:
-        read_and_validate_embark_field_definitions_file(filename)
-    except FileNotFoundError:
-        print('File Not Found')

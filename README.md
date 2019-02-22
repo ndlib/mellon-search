@@ -2,14 +2,15 @@
 This project translates a referenced EmbArk XML file, possibly containing many EmbArk items,
     into a separate JSON file for each item.
 
-    Each JSON file is then used to create a PNX record to be imported into Primo.
-    Each JSON file is also used to create a main.csv file for ingestion into the Mellon Manifest Pipeline
+Each JSON file is then used to create a PNX record to be imported into Primo.
+Each JSON file is also used to create a main.csv file for ingestion into the Mellon Manifest Pipeline
 
 
 To run, pass in the filename to be processed.  For example:
 python3 -c 'from create_json_items_from_embark_xml import *; create_json_items_from_embark_xml("example/objects 01_18_19.xml")'
 
 Then run: ./copy_pnx_to_Primo.sh to copy PNX records into Primo
+
 
 Modules:
 createJsonItemFromEmbArkXml
@@ -48,3 +49,9 @@ get_json_values
     This module deals with extracting a JSON value from a JSON variable.
         If a value is required, it must exist and must not be blank.
         If an error is encountered, we raise a ValueError.
+
+
+When adding additional fields to the EmbArkXMLFields.json, update the following modules:
+    get_embark_xml_definitions.py - add a way to get the field
+    read_embark_fields_json_file.py - add to _validate_embark_field_definitions_file
+    get_individual_field_from_embark_xml - add to __init__ and elsewhere as appropriate

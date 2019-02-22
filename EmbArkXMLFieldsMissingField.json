@@ -2,7 +2,7 @@
 	"itemPath": "./Section[@name='Body'][@id='section_07']",
 	"FieldsToExtract": [
 		{
-			"name": "recordId",
+			"xxxname": "recordId",
 			"required": true,
 			"duplicatesAllowed": false,
 			"xpath": "./variable[@id='object_00055']"

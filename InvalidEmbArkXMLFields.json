@@ -1,6 +1,6 @@
 {
 	"itemPath": "./Section[@name='Body'][@id='section_07']",
-	"FieldsToExtract": [
+	"FieldsToExtract": [x
 		{
 			"name": "recordId",
 			"required": true,
