@@ -1,13 +1,13 @@
-#get_json_values.py 2/1/19 sm
-''' This module deals with extracting a JSON value from a JSON variable.
+# get_json_values.py 2/1/19 sm
+""" This module deals with extracting a JSON value from a JSON variable.
     If a value is required, it must exist and must not be blank.
-    If an error is encountered, we raise a ValueError.'''
+    If an error is encountered, we raise a ValueError."""
 
 import json
 #import pprint
 
 def get_json_value(json_variable, json_key, field_is_required=True):
-    ''' Retrieve a value from a JSON variable '''
+    """ Retrieve a value from a JSON variable """
     json_value = ""
     if json_key not in json_variable:
         if field_is_required:

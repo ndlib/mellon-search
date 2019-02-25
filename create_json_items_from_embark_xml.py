@@ -1,5 +1,10 @@
-# create_json_items_from_embark_xml.py 2/5/19 sm
-""" This is the first module in a series of modules to create JSON (and PNX) given EmbArk input. """
+# create_json_items_from_embark_xml.py 2/5/19 sm.
+r"""This translates EmbArk XML to PNX XML.
+
+This is the first module in a series of modules to first create a JSON \
+file given EmbArk xml.  From that JSON, we then create a PNX record \
+and a main.csv file for each item in the original EmbArk XML. \
+"""
 
 import os
 import sys
@@ -13,15 +18,15 @@ import write_main_csv
 
 
 def create_directory(directory):
-    ''' Create a directory if it doesn't exist '''
+    """Create a directory if it doesn't exist."""
     try:
         os.makedirs(directory)
     except FileExistsError:
-        pass # directory already exists
+        pass  # directory already exists
 
 
 def write_json_output(directory, filename, json_data):
-    ''' Write JSON to file whose name is passed '''
+    """Write JSON to file whose name is passed."""
     try:
         create_directory(directory)
         filename = directory + '/' + filename
@@ -33,14 +38,14 @@ def write_json_output(directory, filename, json_data):
 
 
 def create_json_items_from_embark_xml(embark_xml_filename, pnx_output_directory='pnx', csv_output_root_directory='mellon_input_directory'):
-    ''' Create JSON representation of each item from embark xml file '''
+    """Create JSON representation of each item from embark xml file."""
     try:
         embark_xml_doc = ElementTree(file=embark_xml_filename)
     except:
-        print('We were not able to open the file you specified. Please supply a valid XML filename and try again.')
+        print('Unable to open the file you specified. Please try again.')
         raise
     else:
-        emb_ark_field_definitions = read_embark_fields_json_file.read_and_validate_embark_field_definitions_file()
+        emb_ark_field_definitions = read_embark_fields_json_file.read_embark_fields_json_file()
         xpath_of_embark_item = get_embark_xml_definitions.get_item_xpath(emb_ark_field_definitions)
         fields_definition = get_embark_xml_definitions.get_fields_definition(emb_ark_field_definitions)
         #Loop through each EmbArk record, processing each individually
@@ -62,7 +67,7 @@ def create_json_items_from_embark_xml(embark_xml_filename, pnx_output_directory=
 
 if __name__ == "__main__":
     XML_FILENAME = ''
-    PNX_OUTPUT_DIRECTORY= ''
+    PNX_OUTPUT_DIRECTORY = ''
     if len(sys.argv) >= 1:
         XML_FILENAME = ''.join(sys.argv[1])
     if XML_FILENAME > '':
