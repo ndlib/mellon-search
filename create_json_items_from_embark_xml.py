@@ -6,23 +6,23 @@ file given EmbArk xml.  From that JSON, we then create a PNX record \
 and a main.csv file for each item in the original EmbArk XML. \
 """
 
+from __future__ import print_function
+
 import os
 import sys
 import json
 from xml.etree.ElementTree import ElementTree
-import parse_embark_xml
-import read_embark_fields_json_file
-import get_embark_xml_definitions
-import create_pnx_from_json
+from parse_embark_xml import ParseEmbarkXml
+from read_embark_fields_json_file import read_embark_fields_json_file
+from get_embark_xml_definitions import get_item_xpath, get_fields_definition
+from create_pnx_from_json import create_pnx_from_json_and_write_file
 import write_main_csv
 
 
 def create_directory(directory):
-    """Create a directory if it doesn't exist."""
-    try:
+    """ create directory if it does not exist """
+    if not os.path.exists(directory):
         os.makedirs(directory)
-    except FileExistsError:
-        pass  # directory already exists
 
 
 def write_json_output(directory, filename, json_data):
@@ -32,7 +32,7 @@ def write_json_output(directory, filename, json_data):
         filename = directory + '/' + filename
         with open(filename, 'w') as outfile:
             json.dump(json_data, outfile)
-    except:
+    except OSError:
         print('Unable to write JSON data to output file named ' + filename)
         raise
 
@@ -41,28 +41,29 @@ def create_json_items_from_embark_xml(embark_xml_filename, pnx_output_directory=
     """Create JSON representation of each item from embark xml file."""
     try:
         embark_xml_doc = ElementTree(file=embark_xml_filename)
-    except:
+    except OSError:
         print('Unable to open the file you specified. Please try again.')
         raise
     else:
-        emb_ark_field_definitions = read_embark_fields_json_file.read_embark_fields_json_file()
-        xpath_of_embark_item = get_embark_xml_definitions.get_item_xpath(emb_ark_field_definitions)
-        fields_definition = get_embark_xml_definitions.get_fields_definition(emb_ark_field_definitions)
-        #Loop through each EmbArk record, processing each individually
+        emb_ark_field_definitions = read_embark_fields_json_file()
+        xpath_of_embark_item = get_item_xpath(emb_ark_field_definitions)
+        fields_definition = get_fields_definition(emb_ark_field_definitions)
+        # Loop through each EmbArk record, processing each individually
         for xml_of_embark_item in embark_xml_doc.findall(xpath_of_embark_item):
             json_of_embark_item = {}
             try:
-                parse_embark_xml_instance = parse_embark_xml.ParseEmbarkXml(fields_definition)
-                json_of_embark_item = parse_embark_xml_instance.parse_embark_record(xml_of_embark_item)
+                embark_instance = ParseEmbarkXml(fields_definition)
+                json_of_embark_item = embark_instance.parse_embark_record(xml_of_embark_item)
             except ValueError:
-                print('The XML representing a EmbArk Item didn\'t process as expected.    Please notify someone in IT.')
-                #We will need to add some logging here
+                print('EmbArk Item didn\'t process as expected.')
+                # We will need to add some logging here
                 raise
             else:
-                mellon_input_directory = csv_output_root_directory + '/' + parse_embark_xml_instance.id
-                write_json_output(mellon_input_directory, parse_embark_xml_instance.id + '.json', json_of_embark_item)
-                create_pnx_from_json.create_pnx_from_json_and_write_file(pnx_output_directory, json_of_embark_item)
-                write_main_csv.write_main_csv(mellon_input_directory, json_of_embark_item)
+                mellon_input_directory = csv_output_root_directory + '/' + embark_instance.id
+                write_json_output(mellon_input_directory, embark_instance.id + '.json', json_of_embark_item)
+                create_pnx_from_json_and_write_file(pnx_output_directory, json_of_embark_item)
+                write_main_csv.write_main_csv(
+                    mellon_input_directory, json_of_embark_item)
 
 
 if __name__ == "__main__":

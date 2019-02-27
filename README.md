@@ -9,7 +9,16 @@ Each JSON file is also used to create a main.csv file for ingestion into the Mel
 To run, pass in the filename to be processed.  For example:
 python3 -c 'from create_json_items_from_embark_xml import *; create_json_items_from_embark_xml("example/objects 01_18_19.xml")'
 
-Then run: ./copy_pnx_to_Primo.sh to copy PNX records into Primo
+Two subdirectories are created:
+PNX:  containing the PNX entries
+Mellon_Input_Directory:  containing the directory structure and main.csv files to send through the Mellon Manifest Pipeline
+
+
+Once the PNX directory and contents are created, run: ./copy_pnx_to_Primo.sh to copy PNX records into Primo
+
+
+To test, cd into the test directory, and run:
+python run_all_tests.py
 
 
 Modules:

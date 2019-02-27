@@ -4,10 +4,10 @@
 from __future__ import print_function
 
 import json
-from get_embark_xml_definitions import get_fields_definition, get_item_xpath, \
-    get_field_name, get_field_required, get_field_duplicates_allowed, \
-    get_field_xpath, get_field_default, get_does_not_start_with, \
-    get_starts_with, get_validation_rule, get_constant
+from get_embark_xml_definitions import get_fields_definition, \
+    get_item_xpath, get_field_name, get_field_required, \
+    get_field_duplicates_allowed, get_field_xpath, get_field_default, \
+    get_does_not_start_with, get_starts_with, get_validation_rule, get_constant
 
 
 def _read_embark_fields_file(filename):

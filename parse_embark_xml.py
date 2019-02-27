@@ -21,7 +21,8 @@ class ParseEmbarkXml(object):
         node = {}
         for field in fields_definition:
             get_embark_field_instance = GetEmbarkField(field)
-            node = get_embark_field_instance.get_json_representation_of_field(embark_item_xml)
+            node = get_embark_field_instance.get_json_representation_of_field(
+                embark_item_xml)
             if 'recordId' in node:
                 self.id = node['recordId']
             self.output.update(node)
