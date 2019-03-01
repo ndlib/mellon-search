@@ -1,4 +1,4 @@
-#test_get_embark_xml_definitions.py 2/18/19 sm
+# test_get_embark_xml_definitions.py 2/18/19 sm
 """ test get_embark_xml_definitions.py """
 
 import json
@@ -13,6 +13,7 @@ PARENTDIR = os.path.dirname(CURRENTDIR)
 sys.path.insert(0, PARENTDIR)
 
 import get_embark_xml_definitions
+
 
 class Test(unittest.TestCase):
     """ Class for test fixtures """

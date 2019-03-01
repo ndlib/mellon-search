@@ -24,8 +24,7 @@ modules = [test_create_json_items_from_embark_xml,
            test_get_valid_date,
            test_parse_embark_xml,
            test_read_embark_fields_json_file,
-           test_write_main_csv
-          ]
+           test_write_main_csv]
 
 TESTS_ = []
 for module in modules:

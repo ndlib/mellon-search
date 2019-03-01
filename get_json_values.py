@@ -12,8 +12,8 @@ def get_json_value(json_variable, json_key, field_is_required=True):
     if json_key not in json_variable:
         if field_is_required:
             raise ValueError(
-                'Required Key Missing: "'
-                + json_key + '" does not exist in JSON Control File.'
+                'Required Key Missing: "' + json_key
+                + '" does not exist in JSON Control File.'
                 + ' Offending portion of file includes: '
                 + json.dumps(json_variable))
         return json_value

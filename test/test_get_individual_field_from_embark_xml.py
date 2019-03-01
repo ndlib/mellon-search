@@ -1,4 +1,4 @@
-#test_get_individual_field_from_embark_xml.py 2/18/19 sm
+# test_get_individual_field_from_embark_xml.py 2/18/19 sm
 """ test get_individual_field_from_embark_xml.py """
 
 import json
@@ -14,6 +14,7 @@ PARENTDIR = os.path.dirname(CURRENTDIR)
 sys.path.insert(0, PARENTDIR)
 
 from get_individual_field_from_embark_xml import GetEmbarkField, _starts_with_ok, _does_not_start_with_ok
+
 
 class Test(unittest.TestCase):
     """ Class for test fixtures """
@@ -81,7 +82,6 @@ class Test(unittest.TestCase):
 ')
         xmldoc = ElementTree(xmldoc_element)
         return xmldoc
-
 
     def test_read_record_id(self):
         """ test Read and Parse """
@@ -156,9 +156,6 @@ class Test(unittest.TestCase):
         field_definition = json.loads('{"name": "classification","required": true,"duplicatesAllowed": false,"xpath": "./variable[@name=\'[Object]Class 2\']"}')
         field = GetEmbarkField(field_definition)
         self.assertRaises(ValueError, field.get_json_representation_of_field, xml_of_embark_item)
-        #json_of_embark_field = field.get_json_representation_of_field(xml_of_embark_item)
-        #self.assertTrue(json.loads('{"classification": "painting"}') == json_of_embark_field)
-        #now switch field definition to include default, and return "painting"
         field_definition = json.loads('{"name": "classification","required": true,"duplicatesAllowed": false,"xpath": "./variable[@name=\'[Object]Class 2\']","default": "painting"}')
         field.load_json_field_definition(field_definition)
         json_of_embark_field = field.get_json_representation_of_field(xml_of_embark_item)

@@ -3,6 +3,7 @@
 
 import os
 import xml.etree.ElementTree as ET
+from get_thumbnail_from_manifest import get_thumbnail_from_manifest
 
 
 def _create_xml_element(element_name, element_text):
@@ -54,22 +55,14 @@ def _get_exhibition(json_input):
 def _create_display_section(json_input):
     """ Create Display Section of Primo Record """
     display = ET.Element("display")
-    display.append(_create_xml_element(
-         'lds02', _get_json_value(json_input, 'recordId')))
-    display.append(_create_xml_element(
-        'title', _get_json_value(json_input, 'title')))
-    display.append(_create_xml_element(
-        'creator', _get_json_value(json_input, 'creator')))
-    display.append(_create_xml_element(
-        'creationdate', _get_json_value(json_input, 'displayDate')))
-    display.append(_create_xml_element(
-        'format', _get_media_and_display(json_input)))
-    display.append(_create_xml_element(
-        'lds09', _get_json_value(json_input, 'classification').lower()))
-    display.append(_create_xml_element(
-        'type', _get_json_value(json_input, 'classification').lower()))
-    display.append(_create_xml_element(
-        'lsd10', _get_json_value(json_input, 'repository').title()))
+    display.append(_create_xml_element('lds02', _get_json_value(json_input, 'recordId')))
+    display.append(_create_xml_element('title', _get_json_value(json_input, 'title')))
+    display.append(_create_xml_element('creator', _get_json_value(json_input, 'creator')))
+    display.append(_create_xml_element('creationdate', _get_json_value(json_input, 'displayDate')))
+    display.append(_create_xml_element('format', _get_media_and_display(json_input)))
+    display.append(_create_xml_element('lds09', _get_json_value(json_input, 'classification').lower()))
+    display.append(_create_xml_element('type', _get_json_value(json_input, 'classification').lower()))
+    display.append(_create_xml_element('lsd10', _get_json_value(json_input, 'repository').title()))
     if 'keyword' in json_input:
         for keyword in json_input['keyword']:
             ET.SubElement(display, 'subject').text = keyword['value']
@@ -125,7 +118,7 @@ def _create_browse_section(json_input):
     browse.append(_create_xml_element(
         'author', _get_json_value(json_input, 'creator')))
     browse.append(_create_xml_element(
-        'institution', _get_json_value(json_input, 'repository').upper()))
+        'institution', 'NDU'))  # was _get_json_value(json_input, 'repository').upper()))
     return browse
 
 
@@ -138,6 +131,8 @@ def _create_sort_section(json_input):
         'author', _get_json_value(json_input, 'creator')))
     sort.append(_create_xml_element(
         'creationdate', _get_json_value(json_input, 'creationDate')))
+    sort.append(_create_xml_element(
+        'lso01', _get_json_value(json_input, 'creationDate')))
     return sort
 
 
@@ -160,12 +155,20 @@ def _create_facet_section(json_input):
     return facet
 
 
+def _create_links_section(json_input):
+    links = ET.Element("links")
+    url = get_thumbnail_from_manifest(json_input['recordId'])
+    if url > '':
+        links.append(_create_xml_element('thumbnail', url))
+    return links
+
+
 def _create_delivery_section(json_input):
     """ Create Delivery Section of Primo Record """
     delivery = ET.Element("delivery")
     delivery.append(_create_xml_element('delcategory', 'Physical Item'))
     delivery.append(_create_xml_element(
-        'institution', _get_json_value(json_input, 'repository').upper()))
+        'institution', 'NDU'))  # was _get_json_value(json_input, 'repository').upper()))
     return delivery
 
 
@@ -179,6 +182,7 @@ def create_pnx_from_json(json_input):
     # record.attrib["xmlns:sear"] = sear
     ET.SubElement(record, 'id').text = json_input['recordId']
     record.append(_create_display_section(json_input))
+    record.append(_create_links_section(json_input))
     record.append(_create_search_section(json_input))
     record.append(_create_browse_section(json_input))
     record.append(_create_sort_section(json_input))

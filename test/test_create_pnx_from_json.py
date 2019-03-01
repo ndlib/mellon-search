@@ -11,14 +11,14 @@ from xml.etree import ElementTree
 import os
 import inspect
 import sys
-CURRENTDIR = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+CURRENTDIR = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))  # noqa
 PARENTDIR = os.path.dirname(CURRENTDIR)
 sys.path.insert(0, PARENTDIR)
 
 from create_pnx_from_json import create_pnx_from_json, create_pnx_from_json_and_write_file, \
     _create_xml_element, _get_json_value, _get_media_and_display, _get_exhibition, \
     _create_search_section, _create_browse_section, _create_sort_section, _create_facet_section, \
-    _create_delivery_section, write_pnx
+    _create_delivery_section, write_pnx  # noqa
 
 # import read_embark_fields_json_file
 # import get_embark_xml_definitions
@@ -77,15 +77,23 @@ class Test(unittest.TestCase):
         """ test _create_browse_section """
         json_input = get_json_input()
         xml = _create_browse_section(json_input)
-        expected_results = b'<browse><title>ABSOLUTION UNDER FIRE</title><author>Paul Wood</author><institution>SNITE</institution></browse>'
-        self.assertTrue(ElementTree.tostring(xml) == expected_results)
+        actual_results_file_name = 'actual_results/test_create_browse_section.xml'
+        write_pnx('.', actual_results_file_name, ElementTree.ElementTree(xml))
+        actual_results = ElementTree.ElementTree(file=actual_results_file_name)
+        expected_results_file_name = 'expected_results/test_create_browse_section.xml'
+        expected_results = ElementTree.ElementTree(file=expected_results_file_name)
+        self.assertTrue(ElementTree.tostring(actual_results.getroot()) == ElementTree.tostring(expected_results.getroot()))
 
     def test_create_sort_section(self):
         """ test _create_sort_section """
         json_input = get_json_input()
         xml = _create_sort_section(json_input)
-        expected_results = b'<sort><title>ABSOLUTION UNDER FIRE</title><author>Paul Wood</author><creationdate>18910101</creationdate></sort>'
-        self.assertTrue(ElementTree.tostring(xml) == expected_results)
+        actual_results_file_name = 'actual_results/test_create_sort_section.xml'
+        write_pnx('.', actual_results_file_name, ElementTree.ElementTree(xml))
+        actual_results = ElementTree.ElementTree(file=actual_results_file_name)
+        expected_results_file_name = 'expected_results/test_create_sort_section.xml'
+        expected_results = ElementTree.ElementTree(file=expected_results_file_name)
+        self.assertTrue(ElementTree.tostring(actual_results.getroot()) == ElementTree.tostring(expected_results.getroot()))
 
     def test_create_facet_section(self):
         """ test _create_facet_section """
@@ -102,9 +110,12 @@ class Test(unittest.TestCase):
         """ test _create_delivery_section """
         json_input = get_json_input()
         xml = _create_delivery_section(json_input)
-        expected_results = b'<delivery><delcategory>Physical Item</delcategory><institution>SNITE</institution></delivery>'
-        # print(ElementTree.tostring(xml))
-        self.assertTrue(ElementTree.tostring(xml) == expected_results)
+        actual_results_file_name = 'actual_results/test_create_delivery_section.xml'
+        write_pnx('.', actual_results_file_name, ElementTree.ElementTree(xml))
+        actual_results = ElementTree.ElementTree(file=actual_results_file_name)
+        expected_results_file_name = 'expected_results/test_create_delivery_section.xml'
+        expected_results = ElementTree.ElementTree(file=expected_results_file_name)
+        self.assertTrue(ElementTree.tostring(actual_results.getroot()) == ElementTree.tostring(expected_results.getroot()))
 
     def test_create_pnx_from_json(self):
         """ run test to create PNX record for a single item from a single JSON file """
