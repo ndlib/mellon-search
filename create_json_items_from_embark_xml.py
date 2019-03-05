@@ -1,5 +1,5 @@
 # create_json_items_from_embark_xml.py 2/5/19 sm.
-r"""This translates EmbArk XML to PNX XML.
+"""This translates EmbArk XML to PNX XML.
 
 This is the first module in a series of modules to first create a JSON \
 file given EmbArk xml.  From that JSON, we then create a PNX record \
@@ -37,7 +37,8 @@ def write_json_output(directory, filename, json_data):
         raise
 
 
-def create_json_items_from_embark_xml(embark_xml_filename, pnx_output_directory='pnx', csv_output_root_directory='mellon_input_directory'):
+def create_json_items_from_embark_xml(
+        embark_xml_filename, pnx_output_directory='pnx', csv_output_root_directory='mellon_input_directory'):
     """Create JSON representation of each item from embark xml file."""
     try:
         embark_xml_doc = ElementTree(file=embark_xml_filename)
