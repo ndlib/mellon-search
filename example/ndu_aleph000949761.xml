@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record xmlns="http://www.exlibrisgroup.com/xsd/primo/primo_nm_bib" xmlns:sear="http://www.exlibrisgroup.com/xsd/jaguar/search">
+  <control>
+    <sourcerecordid>000949761</sourcerecordid>
+    <sourceid>ndu_aleph</sourceid>
+    <recordid>ndu_aleph000949761</recordid>
+    <originalsourceid>NDU01</originalsourceid>
+    <ilsapiid>NDU01000949761</ilsapiid>
+    <sourceformat>MARC21</sourceformat>
+    <sourcesystem>Aleph</sourcesystem>
+  </control>
+  <display>
+    <type>book</type>
+    <title>La comedia di Dante Aligieri</title>
+    <creator>Dante Alighieri, 1265-1321.</creator>
+    <contributor>Alessandro Vellutello</contributor>
+    <contributor>Francesco Marcolini ca. 1500-ca. 1559 [Printer]</contributor>
+    <publisher>Impressa in Vinegia : Per Francesco Marcolini ad instantia di Alessandro Vellutello</publisher>
+    <creationdate>del mese di Gugno sic lanno 1544</creationdate>
+    <format>[884] p. : ill. (woodcuts) ; 24 cm. (4to in 8s)..</format>
+    <identifier>$$COCLC $$V14700347</identifier>
+    <language>ita</language>
+    <availlibrary>$$INDU$$LHESB$$1Special Coll. Rare Books Large$$2PQ 4302 1544 V546$$Savailable$$32$$40$$5N$$66$$XNDU50$$YRARE$$ZRB5LA</availlibrary>
+    <unititle>Divina commedia</unititle>
+    <lds01>Signatures: 2A-2Bs2Cℓ° A-Z AB-AZ BC-BI (BD2 signed AD2; BI7 v., BI8 blank).</lds01>
+    <lds01>Contains the lines Purgatorio II, 64-66 (leaf V7r.) which are omitted in some copies. Cf. Cornell University. Libraries. Catalog of the Dante collection, no. 1544.</lds01>
+    <lds01>Text surrounded by commentary.</lds01>
+    <lds01>A few capital spaces with guide letters.</lds01>
+    <lds01>Three full-page and 84 smaller woodcuts.</lds01>
+    <lds01>Cited in: Adams, D-94</lds01>
+    <lds01>Cited in: Manna, A.M. Raccolta dantesca, I, 12</lds01>
+    <lds02>ndu_aleph000949761</lds02>
+    <lds31>Dante Alighieri, 1265-1321. -- Divina commedia</lds31>
+    <availinstitution>$$INDU$$Savailable</availinstitution>
+    <availpnx>available</availpnx>
+  </display>
+  <links>
+    <openurl>$$Topenurl_journal</openurl>
+    <backlink>$$Taleph_backlink$$DNotre Dame Catalog</backlink>
+    <thumbnail>$$Tgoogle_thumb</thumbnail>
+    <openurlfulltext>$$Topenurlfull_journal</openurlfulltext>
+    <linktoholdings>$$Taleph_holdings$$INDU</linktoholdings>
+    <linktoholdings>$$Taleph_holdings</linktoholdings>
+    <linktouc>$$Tworldcat_oclc$$Eworldcat</linktouc>
+    <lln01>$$Tfindit_link</lln01>
+  </links>
+  <search>
+    <creatorcontrib>Dante Alighieri, 1265-1321.</creatorcontrib>
+    <creatorcontrib>con la nova espositione di Alessandro Vellvtello.</creatorcontrib>
+    <creatorcontrib>Alessandro.  Vellutello</creatorcontrib>
+    <creatorcontrib>Francesco,  Marcolini  ca. 1500-ca. 1559  Printer</creatorcontrib>
+    <creatorcontrib>Vellutello, A</creatorcontrib>
+    <creatorcontrib>Marcolini, F  Printer</creatorcontrib>
+    <creatorcontrib>Alīyīrī, Dāntī, 1265-1321</creatorcontrib>
+    <creatorcontrib>Tan-ting, 1265-1321</creatorcontrib>
+    <creatorcontrib>Aligīeri, Dant, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alighieri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dantte, 1265-1321</creatorcontrib>
+    <creatorcontrib>Tantte, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alleghieri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Aldigeri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alihii͡eri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dāntī Alījyīrī, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dant Aligīeri, 1265-1321</creatorcontrib>
+    <creatorcontrib>Danding, 1265-1321</creatorcontrib>
+    <creatorcontrib>Danthe Alighieri, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alighieri, Danthe, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dante Alig'i͡eri, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alig'i͡eri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Ailígiéirí, Dainté, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dantė Aligjeris, 1265-1321</creatorcontrib>
+    <creatorcontrib>אליגיירי דנטי</creatorcontrib>
+    <creatorcontrib>אליגירי, דנטי</creatorcontrib>
+    <creatorcontrib>דאנטי אליגיירי</creatorcontrib>
+    <creatorcontrib>דאנטי אליגיירי, 1265-1321</creatorcontrib>
+    <creatorcontrib>דאנט, 1321־1265</creatorcontrib>
+    <creatorcontrib>דנטה אליגיירי, 1265-1321</creatorcontrib>
+    <creatorcontrib>דנטה אליגירי, 1265-1321</creatorcontrib>
+    <creatorcontrib>דנטי אליגירי, 1265-1321</creatorcontrib>
+    <creatorcontrib>دانتى ألغييري</creatorcontrib>
+    <creatorcontrib>ダンテ, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dānté ʼAligiyéri, 1265-1321</creatorcontrib>
+    <creatorcontrib>Makākavi Tāntē, 1265-1321</creatorcontrib>
+    <creatorcontrib>Tāntē Alikiyari, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alikiyari, Tāntē, 1265-1321</creatorcontrib>
+    <creatorcontrib>דנטי אליגיארי, ‪1265-1321‬</creatorcontrib>
+    <creatorcontrib>Данте Аліґгіері, 1265-1321</creatorcontrib>
+    <creatorcontrib>Aligerius, Dantes, 1265-1321</creatorcontrib>
+    <creatorcontrib>Alaghieri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dante Alih'i͡eri, 1265-1321</creatorcontrib>
+    <creatorcontrib>Aligheri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Dantis Alagherius, 1265-1321</creatorcontrib>
+    <creatorcontrib>Aligeri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Durante Alighieri, 1265-1321</creatorcontrib>
+    <creatorcontrib>دانتي أليجيري،, 1265-1321</creatorcontrib>
+    <creatorcontrib>Allighieri, Dante, 1265-1321</creatorcontrib>
+    <creatorcontrib>Velutello, Alessandro</creatorcontrib>
+    <creatorcontrib>Vellutellus, Alexander</creatorcontrib>
+    <creatorcontrib>Vellutello, Alessandro</creatorcontrib>
+    <title>La comedia di Dante Aligieri /</title>
+    <general>Per Francesco Marcolini ad instantia di Alessandro Vellutello,</general>
+    <general>(OCoLC)14700347</general>
+    <general>OCoLC14700347</general>
+    <general>14700347</general>
+    <general>AEJ5586</general>
+    <general>AllDocuments</general>
+    <general>Signatures: 2A-2Bs2Cℓ° A-Z AB-AZ BC-BI (BD2 signed AD2; BI7 v., BI8 blank).</general>
+    <general>Contains the lines Purgatorio II, 64-66 (leaf V7r.) which are omitted in some copies. Cf. Cornell University. Libraries. Catalog of the Dante collection, no. 1544.</general>
+    <general>Text surrounded by commentary.</general>
+    <general>A few capital spaces with guide letters.</general>
+    <general>Three full-page and 84 smaller woodcuts.</general>
+    <sourceid>ndu_aleph</sourceid>
+    <recordid>ndu_aleph000949761</recordid>
+    <recordid>000949761</recordid>
+    <recordid>949761</recordid>
+    <creationdate>1544</creationdate>
+    <startdate>15440101</startdate>
+    <searchscope>ndu_aleph</searchscope>
+    <searchscope>NDU</searchscope>
+    <scope>RARE</scope>
+    <scope>ndu_aleph</scope>
+    <scope>NDU</scope>
+    <alttitle>Divina commedia</alttitle>
+    <lsr01>RARE RB5LA</lsr01>
+    <lsr01>RARE Rare Books Large</lsr01>
+    <lsr02>Dante Alighieri, Vellutello Marcolini La comedia di Dante Aligieri</lsr02>
+    <lsr02>La comedia di Dante Aligieri Dante Alighieri, Vellutello Marcolini</lsr02>
+    <lsr04>Divina commedia</lsr04>
+    <lsr05>PQ 4302 1544 V546</lsr05>
+    <lsr05>PQ43021544V546</lsr05>
+    <lsr05>PQ</lsr05>
+    <lsr05>PQ4302 1544 V546 :4302 1544 V546 :</lsr05>
+    <lsr06>Per Francesco Marcolini ad instantia di Alessandro Vellutello,</lsr06>
+    <lsr07>Dante Alighieri, Vellutello Marcolini La comedia di Dante Aligieri</lsr07>
+    <lsr07>La comedia di Dante Aligieri Dante Alighieri, Vellutello Marcolini</lsr07>
+    <lsr08>Impressa in Vinegia :</lsr08>
+    <lsr09>SS000438341 SS000450772</lsr09>
+    <lsr31>Dante Alighieri, 1265-1321. Divina commedia</lsr31>
+  </search>
+  <sort>
+    <title>comedia di Dante Aligieri /</title>
+    <creationdate>1544</creationdate>
+    <author>Dante Alighieri, 1265-1321.</author>
+    <lso01>1544</lso01>
+    <lso02>PQ0 004302 1544 V00 546000 -- DLC</lso02>
+  </sort>
+  <facets>
+    <language>ita</language>
+    <creationdate>1544</creationdate>
+    <toplevel>available</toplevel>
+    <prefilter>books</prefilter>
+    <prefilter>print</prefilter>
+    <prefilter>pbook</prefilter>
+    <rsrctype>books</rsrctype>
+    <rsrctype>print</rsrctype>
+    <rsrctype>pbook</rsrctype>
+    <creatorcontrib>Vellutello, A</creatorcontrib>
+    <creatorcontrib>Marcolini, F</creatorcontrib>
+    <library>HESB</library>
+    <lfc04>Divina commedia</lfc04>
+    <classificationlcc>P - Language and literature.–French literature</classificationlcc>
+    <classificationlcc>P - Language and literature.–French literature</classificationlcc>
+    <newrecords>20181019_426</newrecords>
+    <frbrgroupid>3472647</frbrgroupid>
+    <frbrtype>6</frbrtype>
+  </facets>
+  <dedup>
+    <t>99</t>
+    <c1>02004034</c1>
+    <c3>comediadidantealigieri</c3>
+    <c4>1544</c4>
+    <f1>02004034</f1>
+    <f5>comediadidantealigieri</f5>
+    <f6>1544</f6>
+    <f7>comedia di dante aligieri</f7>
+    <f8>it</f8>
+    <f10>per francesco marcolini ad instantia di alessandro vellutello</f10>
+    <f11>dante alighieri 1265 1321</f11>
+  </dedup>
+  <frbr>
+    <t>99</t>
+    <k1>$$Kndu_aleph000949761$$AA</k1>
+    <k3>$$Kdivina commedia$$AT</k3>
+    <k3>$$Kcomedia di dante aligieri$$AT</k3>
+  </frbr>
+  <delivery>
+    <institution>NDU</institution>
+    <delcategory>Physical Item</delcategory>
+  </delivery>
+  <enrichment>
+    <classificationlcc>PQ 4302 1544 V546</classificationlcc>
+    <classificationlcc>PQ 4302 1544</classificationlcc>
+  </enrichment>
+  <ranking>
+    <booster1>1</booster1>
+    <booster2>1</booster2>
+  </ranking>
+  <addata>
+    <aulast>Vellutello</aulast>
+    <aufirst>Alessandro.</aufirst>
+    <au>Dante Alighieri</au>
+    <addau>Vellutello, Alessandro</addau>
+    <addau>Marcolini, Francesco</addau>
+    <btitle>La comedia di Dante Aligieri</btitle>
+    <date>1544</date>
+    <risdate>del mese di Gugno [sic] lanno 1544.</risdate>
+    <format>book</format>
+    <ristype>BOOK</ristype>
+    <cop>Impressa in Vinegia</cop>
+    <pub>Per Francesco Marcolini ad instantia di Alessandro Vellutello</pub>
+    <oclcid>14700347</oclcid>
+    <lccn>02004034</lccn>
+  </addata>
+  <browse>
+    <author>$$DDante Alighieri, 1265-1321$$EDante Alighieri, 1265-1321</author>
+    <author>$$DVellutello, Alessandro$$EVellutello, Alessandro</author>
+    <author>$$DMarcolini, Francesco, ca. 1500-ca. 1559$$EMarcolini, Francesco, ca. 1500-ca. 1559</author>
+    <title>$$DLa comedia di Dante Aligieri$$Ecomedia di Dante Aligieri</title>
+    <title>$$DDivina commedia$$EDivina commedia</title>
+    <callnumber>$$INDU$$DPQ 4302 .B44$$E0pq   04302.b  44000  $$T0</callnumber>
+    <institution>NDU</institution>
+  </browse>
+</record>

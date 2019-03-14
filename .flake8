@@ -1,0 +1,9 @@
+[flake8]
+exclude = .git,example,pnx,mellon_input_directory
+max-line-length = 119
+max-complexity = 10
+ignore =
+    # E402 - Module level import not at top of file
+    E402,  # I have to add the PARENTDIR to the path before importing
+    # W503 - line break before unary operator
+    W503 # I need to break lines to avoid max-line-length errors.  Breaking around unary operators is most readable.
